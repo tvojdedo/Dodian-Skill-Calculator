@@ -8,7 +8,6 @@ app = Flask(__name__)
 def index():
     # Tu musíme poslať 'skills' (množné číslo), lebo index.html to tak vyžaduje
     return render_template("index.html", skills=SKILLS)
-
 @app.route("/skill/<skill_name>", methods=["GET", "POST"])
 def skill_detail(skill_name):
     # Skontrolujeme, či skill existuje v našom zozname
