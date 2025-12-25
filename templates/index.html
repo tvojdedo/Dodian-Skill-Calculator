@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/static/css/style.css">
+
+<div class="container">
+  <h1>RSPS Skill Calculator</h1>
+
+  <div class="skills-grid">
+    {% for key, skill in skills.items() %}
+      <div class="skill {{ 'enabled' if skill.enabled else 'disabled' }}">
+        {% if skill.enabled %}
+          <a href="/skill/{{ key }}">
+            <img src="/static/icons/{{ key }}.png">
+          </a>
+        {% else %}
+          <img src="/static/icons/{{ key }}.png">
+        {% endif %}
+        <div class="skill-name">{{ skill.name }}</div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="footer">
+    RSPS Skill Calculator · Web version
+  </div>
+</div>
