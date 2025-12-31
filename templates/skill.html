@@ -6,25 +6,62 @@
 </head>
 <body>
     <div class="window-container">
-        <div class="header-bar">{{ skill.name }} Calculator</div>
+        <div class="header-bar">{{ skill.name }}</div>
         <div style="text-align: center; padding: 20px;">
-            <img src="{{ url_for('static', filename='icons/' + skill.item) }}" style="width: 50px;">
-            <h2 style="color: #ff981f;">{{ skill.name }}</h2>
+            <form method="post" id="calcForm">
+                <input type="text" name="current_level" id="current_level" placeholder="Current Level" value="{{ result.current_level }}">
+                <input type="text" name="target_level" id="target_level" placeholder="Target Level" value="{{ result.target_level }}">
+                <input type="text" name="current_xp" id="current_xp" placeholder="Current XP" value="{{ result.current_xp }}">
+                <input type="text" name="target_xp" id="target_xp" placeholder="Target XP" value="{{ result.target_xp }}">
             
-            <form method="post" style="display: flex; flex-direction: column; gap: 10px;">
-                <input type="number" name="current_xp" placeholder="Current XP">
-                <input type="number" name="target_level" placeholder="Target Level">
-                <button type="submit" style="background: #5d503d; color: white; border: 1px solid #211c14; padding: 5px;">Calculate</button>
+                <input type="hidden" name="active_pair" id="active_pair" value="">
+            
+                <button type="submit">Calculate</button>
             </form>
+            <script>
+                const lvlInputs = [document.getElementById('current_level'), document.getElementById('target_level')];
+                const xpInputs = [document.getElementById('current_xp'), document.getElementById('target_xp')];
+                const activePairField = document.getElementById('active_pair');
+
+                lvlInputs.forEach(input => {
+                    input.addEventListener('input', () => {
+                        activePairField.value = '1'; // level pair
+                    });
+                });
+
+                xpInputs.forEach(input => {
+                    input.addEventListener('input', () => {
+                        activePairField.value = '2'; // XP pair
+                    });
+                });
+            </script>
 
             {% if result %}
-                <div style="margin-top: 20px; color: #ffffff; font-size: 0.8em; text-align: left;">
-                    <p>XP Needed: {{ result.xp_needed }}</p>
+                {% if 'error' in result %}
+                <div style="margin-top: 20px; color: red; font-size: 0.8em; text-align: left;">
+                    <p>{{ result.error }}</p>
                 </div>
+                {% else %}
+                <div class="actions-table">
+                    {% for action, count in zipped %}
+                        <div class="action-row">
+                            <span
+                                style="background-color: {{ 'red' if action.level > result.current_level else 'green' }};">
+                                {{ action.level }}
+                            </span> 
+                            <img src="{{ url_for('static', filename='icons/' + action.image) }}" style="width: 50px;">
+                            <span>{{ action.action }}</span>
+                            <span>{{ action.exp }}</span>
+                            <span>{{ count }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
             {% endif %}
             
             <a href="/" style="color: #aaaaaa; font-size: 0.7em; display: block; margin-top: 20px;">← Back</a>
         </div>
     </div>
 </body>
+
 </html>
