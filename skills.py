@@ -1,122 +1,115 @@
 SKILLS = {
     "attack": {
         "name": "Attack",
-        "enabled": True,
+        "enabled": False,
         "icon": "Attack_icon.png",
-        "item": "Attack_potion(4)_detail.png"
-    },
-    "strength": {
-        "name": "Strength",
-        "enabled": True,
-        "icon": "Strenght_icon.png",
-        "item": "Strength_potion(4)_detail.png"
-    },
-    "defence": {
-        "name": "Defence",
-        "enabled": True,
-        "icon": "Defense_icon.png",
-        "item": "Defence_potion(4)_detail.png"
-    },
-    "ranged": {
-        "name": "Ranged",
-        "enabled": True,
-        "icon": "Ranged_icon.png",
-        "item": "Ranging_potion(4)_detail.png"
-    },
-    "prayer": {
-        "name": "Prayer",
-        "enabled": True,
-        "icon": "Prayer_icon.png",
-        "item": "Prayer_potion(4)_detail.png"
-    },
-    "magic": {
-        "name": "Magic",
-        "enabled": True,
-        "icon": "Magic_icon.png",
-        "item": "Unpowered_orb_detail.png"
     },
     "hitpoints": {
         "name": "Hitpoints",
-        "enabled": True,
+        "enabled": False,
         "icon": "Hitpoints_icon.png",
-        "item": "Skull_(item)_detail.png"
     },
     "mining": {
         "name": "Mining",
         "enabled": True,
         "icon": "Mining_icon.png",
-        "item": "Adamantite_ore_detail.png"
     },
-    "smithing": {
-        "name": "Smithing",
-        "enabled": True,
-        "icon": "Smithing_icon.png",
-        "item": "Adamantite_bar_detail.png"
-    },
-    "woodcutting": {
-        "name": "Woodcutting",
-        "enabled": True,
-        "icon": "Woodcutting_icon.png",
-        "item": "Stick_(item)_detail.png"
-    },
-    "fletching": {
-        "name": "Fletching",
-        "enabled": True,
-        "icon": "Fletching_icon.png",
-        "item": "Maple_shortbow_(u)_detail.png"
-    },
-    "fishing": {
-        "name": "Fishing",
-        "enabled": True,
-        "icon": "Fishing_icon.png",
-        "item": "Raw_shark_detail.png"
-    },
-    "cooking": {
-        "name": "Cooking",
-        "enabled": True,
-        "icon": "Cooking_icon.png",
-        "item": "Shark_detail.png"
+    "strength": {
+        "name": "Strength",
+        "enabled": False,
+        "icon": "Strenght_icon.png",
     },
     "agility": {
         "name": "Agility",
         "enabled": True,
         "icon": "Agility_icon.png",
-        "item": "Agility_arena_ticket_detail.png"
     },
-    "thieving": {
-        "name": "Thieving",
+    "smithing": {
+        "name": "Smithing",
         "enabled": True,
-        "icon": "Thieving_icon.png",
-        "item": "Thief_Master_farmer.png"
+        "icon": "Smithing_icon.png",
+    },
+    "defence": {
+        "name": "Defence",
+        "enabled": False,
+        "icon": "Defense_icon.png",
     },
     "herblore": {
         "name": "Herblore",
         "enabled": True,
         "icon": "Herblore_icon.png",
-        "item": "Grimy_guam_leaf_detail.png"
+    },
+    "fishing": {
+        "name": "Fishing",
+        "enabled": True,
+        "icon": "Fishing_icon.png",
+    },
+    "ranged": {
+        "name": "Ranged",
+        "enabled": False,
+        "icon": "Ranged_icon.png",
+    },
+    "thieving": {
+        "name": "Thieving",
+        "enabled": True,
+        "icon": "Thieving_icon.png",
+    },
+    "cooking": {
+        "name": "Cooking",
+        "enabled": True,
+        "icon": "Cooking_icon.png",
+    },
+    "prayer": {
+        "name": "Prayer",
+        "enabled": True,
+        "icon": "Prayer_icon.png",
     },
     "crafting": {
         "name": "Crafting",
         "enabled": True,
         "icon": "Crafting_icon.png",
-        "item": "Uncut_sapphire_detail.png"
+    },
+    "firemaking": {
+        "name": "Firemaking",
+        "enabled": True,
+        "icon": "Firemaking_icon.png",
+    },
+    "magic": {
+        "name": "Magic",
+        "enabled": False,
+        "icon": "Magic_icon.png",
+    },
+    "fletching": {
+        "name": "Fletching",
+        "enabled": True,
+        "icon": "Fletching_icon.png",
+    },
+    "woodcutting": {
+        "name": "Woodcutting",
+        "enabled": True,
+        "icon": "Woodcutting_icon.png",
+        "actions": [
+                {"level": 1, "action": "Logs", "exp": 100, "image": "log.png"},
+                {"level": 15, "action": "Oak logs", "exp": 165, "image": "oak.png"},
+                {"level": 30, "action": "Willow logs", "exp": 285, "image": "willow.png"},
+                {"level": 45, "action": "Maple logs", "exp": 425, "image": "maple.png"},
+                {"level": 60, "action": "Yew logs", "exp": 735, "image": "yew.png"},
+                {"level": 75, "action": "Magic logs", "exp": 1075, "image": "magic.webp"}
+        ]
     },
     "runecraft": {
         "name": "Runecraft",
         "enabled": True,
-        "icon": "Runecrafting_icon.png",
-        "item": "Blood_rune_detail.png"
+        "icon": "Runecraft_icon.png",
     },
     "slayer": {
         "name": "Slayer",
-        "enabled": True,
+        "enabled": False,
         "icon": "Slayer_icon.png",
-        "item": "Chicken_cage_detail.png"
     },
     "farming": {
         "name": "Farming",
-        "enabled": True,
+        "enabled": False,
         "icon": "Farming_icon.png",
-        "item": "Gnomeball_detail.png"
     }
 }
