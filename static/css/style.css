@@ -9,7 +9,7 @@ body {
 .window-container {
     background-color: #4a4031;
     border: 3px double #211c14;
-    width: 350px;
+    width: 450px;
 }
 
 .header-bar {
@@ -54,4 +54,62 @@ body {
     filter: grayscale(100%);
     opacity: 0.5;
     pointer-events: none;
+}
+
+.calc-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.calc-form button {
+    grid-column: span 2;
+}
+
+.calc-form button {
+    width: 100%;
+    background: #5d503d;
+    color: white;
+    border: 1px solid #211c14;
+    padding: 5px;
+}
+
+.actions-table {
+    display: flex;
+    flex-direction: column;
+    /* each row stacked vertically */
+    gap: 8px;
+    color:white;
+    /* space between rows */
+}
+
+.action-row {
+    display: grid;
+    grid-template-columns: 50px 60px 1fr 60px 60px;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid #555;
+    /* optional row separator */
+}
+
+.action-level {
+    color: white;
+    text-align: center;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.action-icon {
+    width: 50px;
+    height: auto;
+}
+
+.action-name {
+    font-weight: bold;
+}
+
+.action-xp,
+.action-count {
+    text-align: right;
 }
