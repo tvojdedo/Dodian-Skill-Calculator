@@ -1,5 +1,7 @@
 # logic.py
 
+import math
+
 XP_TABLE = {
     1: 0, 2: 83, 3: 174, 4: 276, 5: 388,
     6: 512, 7: 650, 8: 801, 9: 969, 10: 1154,
@@ -23,10 +25,8 @@ XP_TABLE = {
     96: 9684577, 97: 10692629, 98: 11805606, 99: 13034431
 }
 
-
 def level_to_xp(level: int) -> int:
     return XP_TABLE.get(level, XP_TABLE[99])
-
 
 def xp_to_level(xp: int) -> int:
     level = 1
@@ -36,29 +36,27 @@ def xp_to_level(xp: int) -> int:
     return level
 
 
-def calculate(current_level=None, current_xp=None,
+def calculate(active_pair, skill_data, current_level=None, current_xp=None,
               target_level=None, target_xp=None):
-    """
-    Obojsmerný výpočet:
-    - level → XP
-    - XP → level
-    """
 
-    if current_xp is None and current_level is not None:
+    if active_pair == '1':
         current_xp = level_to_xp(current_level)
-
-    if target_xp is None and target_level is not None:
         target_xp = level_to_xp(target_level)
-
-    if target_level is None and target_xp is not None:
+    elif active_pair == '2':
+        current_level = xp_to_level(current_xp)
         target_level = xp_to_level(target_xp)
 
-    xp_needed = max(0, target_xp - current_xp)
+    xp_needed = target_xp - current_xp
+
+    resultActions = []
+    for action in skill_data['actions']:
+        number = xp_needed / action['exp']
+        resultActions.append(math.ceil(number))
 
     return {
-        "current_level": xp_to_level(current_xp),
         "current_xp": current_xp,
-        "target_level": target_level,
         "target_xp": target_xp,
-        "xp_needed": xp_needed
+        "current_level": current_level,
+        "target_level": target_level,
+        "resultActions": resultActions
     }
